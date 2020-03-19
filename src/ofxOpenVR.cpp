@@ -1149,6 +1149,8 @@ void ofxOpenVR::processVREvent(const vr::VREvent_t & event)
 //--------------------------------------------------------------
 void ofxOpenVR::renderStereoTargets()
 {
+	ofFill();
+
 	glClearColor(_clearColor.r, _clearColor.g, _clearColor.b, _clearColor.a);
 	glEnable(GL_MULTISAMPLE);
 
@@ -1341,6 +1343,7 @@ void ofxOpenVR::renderScene(vr::Hmd_Eye nEye)
 //--------------------------------------------------------------
 //NOTE: currently size of rendering texture is limited render_width,render_heigth (SOME BUG)
 void ofxOpenVR::draw_using_contrast_shader(float w, float h, float contrast0, float contrast1, int eye) {
+	ofFill();
 	ofShader &shader = contrast_shader_;
 	shader.begin();
 	shader.setUniform1f("contrast0", contrast0);
